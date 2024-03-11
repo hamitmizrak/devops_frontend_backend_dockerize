@@ -15,12 +15,13 @@ services:
       - networkSpringReactMysql
     depends_on:
       - devopsMysqlDatabase
+      - devopsPostgresqlDatabase  
 
-# DATABASE
+# DATABASE (MYSQL)
   devopsMysqlDatabase:
     image: mysql:8.0
     ports:
-      - "3307:3306"
+      - "5555:3306"
     expose:
       - "3306"  
     networks:
@@ -30,6 +31,21 @@ services:
       - MYSQL_DATABASE= blog
       - MYSQL_ROOT_PASSWORD= root
       - MYSQL_PASSWORD= root
+    restart: unless-stopped
+
+# DATABASE (POSTGRESQL)
+  devopsPostgresqlDatabase:
+    image: postgres
+    ports:
+      - "6666:5432"
+    expose:
+      - "5432"  
+    networks:
+      - networkSpringReactMysql
+    environment:
+      - POSTGRES_PASSWORD= postgres
+      - POSTGRES_USER= postgres
+      - POSTGRES_DATABASE= blog
     restart: unless-stopped
 
 # PROMETHEUS (localhost:3333)
