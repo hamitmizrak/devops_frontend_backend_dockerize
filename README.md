@@ -28,6 +28,14 @@ http://localhost:3333
 ```
 ---
 
+# Node Exporter
+```sh
+http://localhost:9100
+
+```
+---
+
+
 # Grafana
 ```sh
 http://localhost:4444
