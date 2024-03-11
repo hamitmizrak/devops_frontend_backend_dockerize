@@ -33,10 +33,13 @@ HEALTHCHECK --interval=60s --timeout=5s --start-period=5s --retries=3 \
 EXPOSE 4444 
 
 # JAR FILE (Değişkeni Oluştur)
-ARG JAR_FILE= /target/*.war
+ARG JAR_FILE= /target/*.jar
 
 # Proje İsmini Ekle 
-ADD ${JAR_FILE} blog_react
+ADD ${JAR_FILE} backend_blog_react
 
 # Entry point
-ENTRYPOINT [ "java","-jar","/blog_react" ]
+ENTRYPOINT [ "java","-jar","/backend_blog_react" ]
+
+# Docker Komut => Dockerfile build .
+# Docker Komut => docker build -t my-prometheus .
