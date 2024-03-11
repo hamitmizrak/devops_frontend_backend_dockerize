@@ -98,6 +98,8 @@ networks:
 # restart: always (konteynar her zaman otomatik başlatsın)
 # restart: on-failure  (konteynar çökmesi durumunda otomatik olarak başlat)
 
+# docker network ls
+# docker network inspect networkName
 
   # web:
   #   image: nginx:alpine
